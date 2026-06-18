@@ -1,0 +1,14 @@
+body {
+    
+    background-color: #121212 !important; 
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.navbar-brand {
+    letter-spacing: 2px;
+}
+
+.nav-link:hover {
+    color: #f39c12 !important; /* A luxury gold/orange accent color */
+    transition: color 0.3s ease-in-out;
+}

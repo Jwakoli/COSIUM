@@ -24,6 +24,8 @@
                     <li class="nav-item"><a class="nav-link" href="inventory.html">Inventory</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="financing.html">Financing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
             </div>
@@ -42,9 +44,9 @@
         <div class="row g-5 mb-5 border-bottom border-secondary pb-5">
             <div class="col-md-6">
                 <div class="p-4 bg-black rounded h-100 border border-secondary">
-                    <h3 class="fw-bold mb-3">Import Finance</h3>
-                    <p class="text-muted">Looking to import a specific unit directly from Japan or the UK? We handle the logistics, customs, and duty payments. Secure your unit with a 30% deposit, and we will finance the rest upon arrival.</p>
-                    <ul class="text-muted text-sm mt-3">
+                    <h3 class="fw-bold text-white mb-3">Import Finance</h3>
+                    <p class="text-light">Looking to import a specific unit directly from Japan or the UK? We handle the logistics, customs, and duty payments. Secure your unit with a 30% deposit, and we will finance the rest upon arrival.</p>
+                    <ul class="text-light text-sm mt-3">
                         <li>Up to 70% duty financing</li>
                         <li>Seamless port-to-door delivery</li>
                         <li>Competitive local interest rates</li>
@@ -54,9 +56,9 @@
             
             <div class="col-md-6">
                 <div class="p-4 bg-black rounded h-100 border border-secondary">
-                    <h3 class="fw-bold mb-3">Local Asset Finance</h3>
-                    <p class="text-muted">For units currently sitting in our showroom floor, we partner with top tier banks to provide fast-tracked asset financing. Drive away within 48 hours of approval.</p>
-                    <ul class="text-muted text-sm mt-3">
+                    <h3 class="fw-bold text-white mb-3">Local Asset Finance</h3>
+                    <p class="text-light">For units currently sitting in our showroom floor, we partner with top tier banks to provide fast-tracked asset financing. Drive away within 48 hours of approval.</p>
+                    <ul class="text-light text-sm mt-3">
                         <li>Repayment periods of up to 60 months</li>
                         <li>Quick appraisal and approval process</li>
                         <li>Trade-ins accepted as down payments</li>
@@ -68,12 +70,43 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card bg-black border-secondary">
-                    <div class="card-body text-center p-5">
-                        <h4 class="text-warning mb-3">Payment Calculator Tool</h4>
-                        <p class="text-muted mb-4">Estimate your monthly payments using our upcoming live calculator.</p>
-                        <div class="alert alert-dark border-secondary" role="alert">
-                            <em>[ JavaScript Loan Calculator feature will be deployed here in the next update ]</em>
+                    <div class="card-body p-5">
+                        <h4 class="text-warning mb-4 text-center fw-bold">Auto Loan Calculator</h4>
+                        
+                        <form id="loanCalculator">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="vehiclePrice" class="form-label text-white">Vehicle Price (KES)</label>
+                                    <input type="number" class="form-control bg-dark text-light border-secondary" id="vehiclePrice" placeholder="e.g. 7620000" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="downPayment" class="form-label text-white">Down Payment (KES)</label>
+                                    <input type="number" class="form-control bg-dark text-light border-secondary" id="downPayment" placeholder="e.g. 1500000" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="interestRate" class="form-label text-white">Annual Interest Rate (%)</label>
+                                    <input type="number" step="0.1" class="form-control bg-dark text-light border-secondary" id="interestRate" value="13.5" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="loanTerm" class="form-label text-white">Loan Term (Months)</label>
+                                    <select class="form-select bg-dark text-light border-secondary" id="loanTerm">
+                                        <option value="12">12 Months</option>
+                                        <option value="24">24 Months</option>
+                                        <option value="36">36 Months</option>
+                                        <option value="48">48 Months</option>
+                                        <option selected value="60">60 Months</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-outline-warning w-100 mt-4 py-2 fw-bold text-uppercase tracking-wide">Calculate Payment</button>
+                        </form>
+                        
+                        <div id="calculatorResult" class="mt-4 pt-4 border-top border-secondary text-center d-none">
+                            <h5 class="text-white mb-2">Estimated Monthly Payment</h5>
+                            <h2 class="text-success fw-bold mb-0" id="monthlyPaymentResult">KES 0</h2>
+                            <p class="text-muted text-sm mt-2 mb-0">Total Interest Paid: <span id="totalInterestResult" class="text-white">KES 0</span></p>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -88,15 +121,20 @@
                     <h5 class="text-uppercase fw-bold text-white tracking-wide mb-3">Apex Auto</h5>
                     <p class="text-muted" style="font-size: 0.9rem;">Your premier destination for luxury and performance vehicles. Experience automotive excellence.</p>
                 </div>
+                
                 <div class="col-lg-4">
                     <h5 class="text-white mb-3">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="index.html" class="text-muted text-decoration-none hover-border-warning">Home</a></li>
-                        <li class="mb-2"><a href="financing.html" class="text-muted text-decoration-none hover-border-warning">Financing</a></li>
-                        <li class="mb-2"><a href="inventory.html" class="text-muted text-decoration-none hover-border-warning">Inventory</a></li>
-                        <li class="mb-2"><a href="contact.html" class="text-muted text-decoration-none hover-border-warning">Contact</a></li>
+                        <li class="mb-2"><a href="index.html" class="text-muted text-decoration-none border-bottom border-transparent hover-border-warning pb-1">Home</a></li>
+                        <li class="mb-2"><a href="inventory.html" class="text-muted text-decoration-none border-bottom border-transparent hover-border-warning pb-1">Inventory</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-muted text-decoration-none border-bottom border-transparent hover-border-warning pb-1">About Us</a></li>
+                        <li class="mb-2"><a href="financing.html" class="text-muted text-decoration-none border-bottom border-transparent hover-border-warning pb-1">Financing</a></li>
+                        <li class="mb-2"><a href="faq.html" class="text-muted text-decoration-none border-bottom border-transparent hover-border-warning pb-1">FAQ</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-muted text-decoration-none border-bottom border-transparent hover-border-warning pb-1">Services</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-muted text-decoration-none border-bottom border-transparent hover-border-warning pb-1">Contact</a></li>
                     </ul>
                 </div>
+                
                 <div class="col-lg-4">
                     <h5 class="text-white mb-3">Showroom Hours</h5>
                     <ul class="list-unstyled text-muted" style="font-size: 0.9rem;">
@@ -106,7 +144,10 @@
                     </ul>
                 </div>
             </div>
-            <div class="text-center text-muted mt-4" style="font-size: 0.85rem;">
+            
+            <hr class="border-secondary mt-4 mb-4">
+            
+            <div class="text-center text-muted" style="font-size: 0.85rem;">
                 &copy; 2026 Apex Auto Dealership. All Rights Reserved.
             </div>
         </div>

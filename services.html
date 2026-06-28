@@ -47,7 +47,7 @@
                     <div class="card-body">
                         <h4 class="card-title text-warning fw-bold mb-3">Scheduled Maintenance</h4>
                         <p class="card-text text-white text-sm">Protect your investment. We offer comprehensive fluid changes, brake servicing, and multi-point inspections using strictly OEM parts.</p>
-                        <button class="btn btn-outline-light mt-3 w-100 fw-bold tracking-wide">Book Appointment</button>
+                        <button type="button" class="btn btn-outline-light mt-3 w-100 fw-bold tracking-wide" data-bs-toggle="modal" data-bs-target="#bookingModal">Book Appointment</button>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                     <div class="card-body">
                         <h4 class="card-title text-warning fw-bold mb-3">Executive Detailing</h4>
                         <p class="card-text text-white text-sm">Restore your vehicle's showroom shine. Our detailing packages include paint correction, ceramic coating, and deep leather conditioning.</p>
-                        <button class="btn btn-outline-light mt-3 w-100 fw-bold tracking-wide">View Packages</button>
+                       <button type="button" class="btn btn-outline-light mt-3 w-100 fw-bold tracking-wide" data-bs-toggle="modal" data-bs-target="#bookingModal">View Packages</button>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                     <div class="card-body">
                         <h4 class="card-title text-warning fw-bold mb-3">Performance Tuning</h4>
                         <p class="card-text text-white text-sm">Unlock your vehicle's true potential. We partner with top tuning houses to provide ECU remaps, custom exhaust systems, and suspension upgrades.</p>
-                        <button class="btn btn-outline-light mt-3 w-100 fw-bold tracking-wide">Consult a Tech</button>
+                        <button type="button" class="btn btn-outline-light mt-3 w-100 fw-bold tracking-wide" data-bs-toggle="modal" data-bs-target="#bookingModal">Consult a Tech</button>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,22 @@
             </div>
         </div>
     </footer>
-
+<div class="modal fade text-dark" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bookingModalLabel">Book a Service</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Thank you for your interest! Our online booking system is currently under maintenance. Please call us at +254 40 000 0000 to schedule your appointment.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
 </body>
